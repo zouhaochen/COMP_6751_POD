@@ -12,7 +12,14 @@ from nltk.corpus import reuters
 
 # 3.a in the Reuters corpus, what are the number of documents?
 print(len(reuters.fileids()))
+
+
 # 3.b in the Reuters corpus, what are the number of words?
 print(len(reuters.words()))
+
+
+# 3.c in the Reuters corpus, what are the number of sentences?
+print(len(reuters.sents()))
+
 
 
