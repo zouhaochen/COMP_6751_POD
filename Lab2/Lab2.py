@@ -52,32 +52,20 @@ print()
 #    (c) Joe really put the fish on the log.
 #    (d) Joe never puts fish on logs.
 
+grammar1 = nltk.CFG.fromstring("""
+S -> NP VP
+VP -> V NP | V NP PP
+PP -> P NP
+V -> "saw" | "ate" | "walked" | "put"
+NP -> "John" | "Mary" | "Bob" | Det N | Det N PP | "Joe"
+Det -> "a" | "an" | "the" | "my"
+N -> "man" | "dog" | "cat" | "telescope" | "park" | "log"
+P -> "in" | "on" | "by" | "with"
+""")
 
-grammar = nltk.CFG.fromstring("""
-  S -> NP VP
-  NP -> "Joe"
-  VP -> IV | TV NP | DatV NP PP | SV Adj | SV S
-  PP -> P NP
-  IV -> "barked"
-  TV -> "put" | "puts" | "saw"
-  DatV -> "gave"
-  SV -> "said"
-  NP -> "Joe" | Det N | Det N PP
-  Det -> "a" | "an" | "the"
-  N -> "man" | "fish" | "log"
-  P -> "on" | "with"
-  """)
-
-a = "Joe put on the log".split()
-b = "Joe put the fish on log".split()
-c = "Joe really put the fish on the log".split()
-d = "Joe never puts fish on logs".split()
-
-rd_parser = nltk.RecursiveDescentParser(grammar)
-trees = rd_parser.parse(b)
-for tree in trees:
+sent = "Joe put the man on the log".split()
+rd_parser = nltk.RecursiveDescentParser(grammar1)
+for tree in rd_parser.parse(sent):
     print(tree)
-
-
 
 
