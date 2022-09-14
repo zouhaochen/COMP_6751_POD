@@ -54,7 +54,7 @@ print()
 
 grammar1 = nltk.CFG.fromstring("""
 S -> NP VP
-VP -> V NP | V NP PP | VP PP
+VP -> V NP | V NP PP
 PP -> P NP
 V -> "put"
 NP -> PropN | N | Det N | Det N PP
@@ -64,16 +64,9 @@ N -> "log" | "fish"
 P -> "on"
 """)
 
-sentenceA = "Joe put on the log".split()
+sent = "Joe put the fish on log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
-for tree in rd_parser.parse(sentenceA):
-    print(tree)
-
-print()
-
-sentenceB = "Joe put the fish on log".split()
-rd_parser = nltk.RecursiveDescentParser(grammar1)
-for tree in rd_parser.parse(sentenceB):
+for tree in rd_parser.parse(sent):
     print(tree)
 
 
