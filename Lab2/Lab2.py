@@ -18,6 +18,23 @@
 #    wind:  NOUN    (noun)
 #    .:     PUNCT   (punctuation)
 
+import nltk
+from nltk import word_tokenize
+
+sentence = word_tokenize("They wind back the clock, while we chase after the wind.")
+
+# Penn Treebank tagset
+print(nltk.pos_tag(sentence))
+
+print()
+
+# Universal tagset
+print(nltk.pos_tag(sentence, tagset='universal'))
+
+
+
+# 2. create a dictionary e, to represent a single lexical entry for put.
+#    Define keys like headword, part-of-speech, arguments, sense, and example, then assign them suitable values.
 
 
 
