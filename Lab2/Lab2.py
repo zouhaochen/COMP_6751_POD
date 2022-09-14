@@ -74,7 +74,7 @@ c = "Joe really put the fish on the log".split()
 d = "Joe never puts fish on logs".split()
 
 rd_parser = nltk.RecursiveDescentParser(grammar)
-trees = rd_parser.parse(a)
+trees = rd_parser.parse(b)
 for tree in trees:
     print(tree)
 
