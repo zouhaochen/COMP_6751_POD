@@ -5,14 +5,14 @@
 #    They: PRON (pronoun)
 #    wind: VERB (verb)
 #    back: ADP (adposition)
-#    the: DET
-#    clock: NOUN
-#    ,: PUNCT
-#    while: CCONJ
-#    we: PRON
-#    chase: VERB
-#    after: ADP
-#    the: DET
-#    wind: NOUN
-#    .: PUNCT
+#    the: DET (determiner)
+#    clock: NOUN (noun)
+#    ,: PUNCT (punctuation)
+#    while: CCONJ (coordinating conjunction)
+#    we: PRON (pronoun)
+#    chase: VERB (verb)
+#    after: ADP (adposition)
+#    the: DET (determiner)
+#    wind: NOUN (noun)
+#    .: PUNCT (punctuation)
 
