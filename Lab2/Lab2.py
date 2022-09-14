@@ -64,9 +64,16 @@ N -> "log" | "fish"
 P -> "on"
 """)
 
-sent = "Joe put the fish on log".split()
+sentenceA = "Joe put on the log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
-for tree in rd_parser.parse(sent):
+for tree in rd_parser.parse(sentenceA):
+    print(tree)
+
+print()
+
+sentenceB = "Joe put the fish on log".split()
+rd_parser = nltk.RecursiveDescentParser(grammar1)
+for tree in rd_parser.parse(sentenceB):
     print(tree)
 
 
