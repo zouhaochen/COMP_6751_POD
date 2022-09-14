@@ -31,14 +31,52 @@ print()
 # Universal tagset
 print(nltk.pos_tag(sentence, tagset='universal'))
 
-
+print()
 
 # 2. create a dictionary e, to represent a single lexical entry for put.
 #    Define keys like headword, part-of-speech, arguments, sense, and example, then assign them suitable values.
 
+e = {'headword': 'A style of boot with a severely pointed toe, fashionable in the 1950s.',
+     'part-of-speech': 'Noun',
+     'sense': 'type of footwear',
+     'example': 'Winklepickers were very popular among mods in the 60s.'}
+
+print(e)
+
+print()
+
+# 3. Using the categories defined in NLTK Ch8 in Tables 3.1, 5.1, and 5.2,
+#    write a CFG fragment that deals properly with the following:
+#    (a) *Joe put on the log.
+#    (b) *Joe put the fish on log.
+#    (c) Joe really put the fish on the log.
+#    (d) Joe never puts fish on logs.
 
 
+grammar = nltk.CFG.fromstring("""
+  S -> NP VP
+  NP -> "Joe"
+  VP -> IV | TV NP | DatV NP PP | SV Adj | SV S
+  PP -> P NP
+  IV -> "barked"
+  TV -> "put" | "puts" | "saw"
+  DatV -> "gave"
+  SV -> "said"
+  NP -> "Joe" | Det N | Det N PP
+  Det -> "a" | "an" | "the"
+  N -> "man" | "fish" | "log"
+  P -> "on" | "with"
+  """)
 
+a = "Joe put on the log".split()
+b = "Joe put the fish on log".split()
+c = "Joe really put the fish on the log".split()
+d = "Joe never puts fish on logs".split()
+
+rd_parser = nltk.RecursiveDescentParser(grammar)
+trees = rd_parser.parse(a)
+for tree in trees:
+    print(tree)
 
 
 
