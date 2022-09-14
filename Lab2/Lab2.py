@@ -69,6 +69,7 @@ sentenceA = "Joe put on the log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
 for treeA in rd_parser.parse(sentenceA):
     print(treeA)
+    treeA.draw()
 
 print()
 
@@ -76,6 +77,8 @@ sentenceB = "Joe put the fish on log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
 for treeB in rd_parser.parse(sentenceB):
     print(treeB)
+    treeB.draw()
+
 
 print()
 
@@ -83,6 +86,7 @@ sentenceC = "Joe really put the fish on the log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
 for treeC in rd_parser.parse(sentenceC):
     print(treeC)
+    treeC.draw()
 
 print()
 
@@ -90,3 +94,4 @@ sentenceD = "Joe never puts fish on logs".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
 for treeD in rd_parser.parse(sentenceD):
     print(treeD)
+    treeD.draw()
