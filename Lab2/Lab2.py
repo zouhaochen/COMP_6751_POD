@@ -54,16 +54,17 @@ print()
 
 grammar1 = nltk.CFG.fromstring("""
 S -> NP VP
-VP -> V NP | V NP PP
+VP -> V NP | V NP PP | VP PP
 PP -> P NP
-V -> "saw" | "ate" | "walked" | "put"
-NP -> "John" | "Mary" | "Bob" | Det N | Det N PP | "Joe"
-Det -> "a" | "an" | "the" | "my"
-N -> "man" | "dog" | "cat" | "telescope" | "park" | "log"
-P -> "in" | "on" | "by" | "with"
+V -> "put"
+NP -> PropN | N | Det N | Det N PP
+PropN -> "Joe"
+Det -> "the"
+N -> "log" | "fish"
+P -> "on"
 """)
 
-sent = "Joe put the man on the log".split()
+sent = "Joe put the fish on log".split()
 rd_parser = nltk.RecursiveDescentParser(grammar1)
 for tree in rd_parser.parse(sent):
     print(tree)
