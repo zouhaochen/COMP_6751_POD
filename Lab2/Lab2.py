@@ -95,3 +95,5 @@ rd_parser = nltk.RecursiveDescentParser(grammar1)
 for treeD in rd_parser.parse(sentenceD):
     print(treeD)
     treeD.draw()
+
+
